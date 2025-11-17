@@ -1,0 +1,165 @@
+<section id="ameliorations-accessibilite" style="max-width:900px;margin:auto;line-height:1.6;font-size:1.05rem;">
+
+  <h2>1. Détail des améliorations pour l’accessibilité</h2>
+  <p>Les optimisations ci-dessous sont regroupées par grandes thématiques RGAA / UX.</p>
+
+  <!-- A) STRUCTURE -->
+  <h3>A. Structure sémantique et navigation lecteur d’écran</h3>
+
+  <h4>1) Transformation des &lt;div&gt; en &lt;fieldset&gt; + &lt;legend&gt;</h4>
+  <p><strong>Script concerné :</strong> bloc “TRANSFORMATION DES DIV EN FIELDSET (list-dropdown, yes-no, numeric-multi, multiple-opt, list-radio, multiple-short-txt)”</p>
+
+  <ul>
+    <li>Les éléments :
+      <code>div.list-dropdown</code>,
+      <code>div.yes-no</code>,
+      <code>div.numeric-multi</code>,
+      <code>div.list-radio</code>,
+      <code>div.multiple-opt</code>,
+      <code>div.question-container.multiple-short-txt</code>  
+      → sont remplacés dynamiquement par des <code>&lt;fieldset&gt;</code>.
+    </li>
+    <li>Le label de la question (<code>label.ls-label-question</code> ou <code>:scope &gt; label</code>) devient un <code>&lt;legend&gt;</code>.</li>
+  </ul>
+
+  <p><strong>Bénéfices :</strong></p>
+  <ul>
+    <li>Structure claire pour les lecteurs d’écran : chaque question est un groupe cohérent.</li>
+    <li>Navigation plus logique (“form mode”) pour NVDA, JAWS et VoiceOver.</li>
+  </ul>
+
+  <h4>2) Fieldset pour les questions “multiple-opt-comments”</h4>
+  <p><strong>Script concerné :</strong> bloc 8a “Désactive complètement les commentaires des lignes non cochées”.</p>
+
+  <ul>
+    <li>Les éléments <code>div.row.multiple-opt-comments</code> sont convertis en <code>&lt;fieldset role="group"&gt;</code>.</li>
+  </ul>
+
+  <p><strong>Bénéfices :</strong></p>
+  <ul>
+    <li>Chaque ligne (case + commentaire) forme un groupe compréhensible par les technologies d’assistance.</li>
+    <li>Même logique que les autres types de questions multi-choix.</li>
+  </ul>
+
+  <hr>
+
+  <!-- B) REQUIRED -->
+  <h3>B. Gestion des attributs <code>required</code> et des champs cachés</h3>
+
+  <h4>1) Suppression des <code>required</code> sur les champs cachés / invisibles</h4>
+  <p><strong>Scripts concernés :</strong> “NETTOYAGE DES REQUIRED…” + blocs 4, 4c, 4d, 4e.</p>
+
+  <p><strong>Le script retire automatiquement <code>required</code> sur :</strong></p>
+  <ul>
+    <li><code>input[type="hidden"][disabled]</code></li>
+    <li>Champs “Autre texte” masqués : <code>.ls-js-hidden</code></li>
+    <li>Champs dans : <code>fieldset.multiple-opt.mandatory input</code></li>
+  </ul>
+
+  <p><strong>Gestion conditionnelle :</strong></p>
+  <ul>
+    <li>Si la question est visible + mandatory → <code>required</code> est ajouté.</li>
+    <li>Si la question est cachée (<code>.ls-hidden</code>, <code>.ls-irrelevant</code>, <code>display:none</code>) → <code>required</code> est retiré.</li>
+    <li>Prise en charge spécifique :
+      <ul>
+        <li><code>.text-long.mandatory</code></li>
+        <li><code>.text-short.mandatory</code></li>
+        <li><code>.row.text-short</code> / <code>.row.text-long</code></li>
+        <li>Tableaux <code>.ls-table-wrapper</code> : une seule radio obligatoire par ligne</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p><strong>Bénéfices :</strong></p>
+  <ul>
+    <li>Plus d’erreurs HTML5 sur des champs invisibles (bug courant de LimeSurvey).</li>
+    <li>Les lecteurs d’écran ne rencontrent plus de champs “obligatoires” qui ne sont pas visibles.</li>
+    <li>Cohérence totale entre ce que voit l’utilisateur et les obligations réelles.</li>
+  </ul>
+
+  <h4>2) Required logique pour les groupes radios / checkboxes</h4>
+  <p><strong>Scripts concernés :</strong> blocs 4, 4d, 8a.</p>
+
+  <ul>
+    <li>Le <code>required</code> est géré au niveau du <strong>groupe</strong>, pas des inputs individuels.</li>
+    <li>Dans les tableaux : une <strong>radio obligatoire par ligne</strong>.</li>
+  </ul>
+
+  <p><strong>Bénéfices :</strong></p>
+  <ul>
+    <li>Moins de bruit pour les lecteurs d’écran (pas 10 radios annoncées comme obligatoires).</li>
+    <li>Les messages d’erreur s’affichent au niveau de la question → plus naturel.</li>
+  </ul>
+
+  <hr>
+
+  <!-- C) DATES -->
+  <h3>C. Accessibilité des dates et des champs formatés</h3>
+
+  <h4>1) Dates Jour / Mois / Année + input date caché</h4>
+  <p><strong>Scripts concernés :</strong> bloc 1) + 1b).</p>
+
+  <ul>
+    <li>L’<code>input[type="date"]</code> de LimeSurvey est :
+      <ul>
+        <li><code>disabled</code></li>
+        <li><code>aria-hidden="true"</code></li>
+        <li><code>tabindex="-1"</code></li>
+        <li>sans <code>required</code></li>
+      </ul>
+    </li>
+    <li>La date réelle est générée via les sélecteurs :
+      <code>&lt;select class="day"&gt;</code>,
+      <code>&lt;select class="month"&gt;</code>,
+      <code>&lt;select class="year"&gt;</code>.
+    </li>
+    <li>En cas d’erreur → focus sur le premier select vide.</li>
+    <li>Placeholders ajoutés : “Jour”, “Mois”, “Année”.</li>
+  </ul>
+
+  <p><strong>Bénéfices :</strong></p>
+  <ul>
+    <li>Focus uniquement sur des éléments visibles → meilleure accessibilité clavier.</li>
+    <li>Structure plus claire pour les lecteurs d’écran (3 champs explicites).</li>
+    <li>Message d’erreur précis et compréhensible.</li>
+  </ul>
+
+  <h4>2) Masquage des calendriers natifs doublons</h4>
+  <p><strong>Script concerné :</strong> bloc 5).</p>
+
+  <ul>
+    <li>Masquage des composants :
+      <code>.input-group-addon i.fa-calendar</code>,
+      <code>.tempus-dominus-widget</code>,
+      <code>.date-container</code>
+    </li>
+  </ul>
+
+  <p><strong>Bénéfice :</strong></p>
+  <ul>
+    <li>Aucun double calendrier perturbant la navigation clavier ou assistée.</li>
+  </ul>
+
+  <h4>3) Auto-type pour email, téléphone, nombre et date</h4>
+  <p><strong>Script concerné :</strong> bloc 6).</p>
+
+  <ul>
+    <li>Selon la classe du conteneur :
+      <ul>
+        <li><code>.email</code> → <code>type="email"</code> + <code>autocomplete="email"</code></li>
+        <li><code>.tel</code> → <code>type="tel"</code> + clavier numérique mobile</li>
+        <li><code>.num</code> / <code>.numeric</code> → <code>type="number"</code></li>
+        <li><code>.date</code> → <code>type="date"</code></li>
+      </ul>
+    </li>
+    <li>Placeholders adaptés (ex : “prenom.nom@organisme.fr”).</li>
+  </ul>
+
+  <p><strong>Bénéfices :</strong></p>
+  <ul>
+    <li>Clavier mobile adapté (email, téléphone, numérique).</li>
+    <li>Validation native plus propre (format, chiffres…).</li>
+    <li>Expérience plus fluide sur smartphone et tablette.</li>
+  </ul>
+
+</section>
