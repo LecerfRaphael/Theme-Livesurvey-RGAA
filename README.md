@@ -107,7 +107,7 @@
       dans une volonté de respecter les bonnes pratiques du <strong>RGAA 4</strong> et d'améliorer constamment l’expérience utilisateur.
     </p>
     <p>
-      📬 Contact : <a href="mailto:raphael.lecerf@univ-lille.fr">raphael.lecerf@univ-lille.fr</a>
+      📬 Contact : <a href="mailto:raphael.lecerf@univ-lille.fr">raphael.lecerf@univ-lille.fr</a> / <a href="mailto:support-liemsurvey@univ-lille.fr">support-limesurvey@univ-lille.fr</a>
     </p>
   </footer>
 
