@@ -1,0 +1,113 @@
+✨ Des questionnaires en ligne plus simples, plus clairs, plus accessibles
+Université de Lille • Pack Accessibilité LimeSurvey
+
+À l’Université de Lille, nous avons profondément amélioré l’expérience des questionnaires LimeSurvey afin qu’ils soient plus agréables, plus intuitifs et plus accessibles à tous 😄
+
+Que vous utilisiez un ordinateur, un smartphone, un clavier, une synthèse vocale ou que vous soyez simplement peu à l’aise avec le numérique…
+👉 notre objectif est simple : moins de contraintes, plus de clarté.
+
+🧭 Une navigation plus fluide : une seule question à corriger à la fois
+
+Pour éviter la surcharge d’informations :
+
+✔️ La validation se fait pas à pas : le formulaire pointe la première question qui pose problème.
+
+✔️ Le message d’erreur s’affiche directement à côté de la question concernée.
+
+✔️ Le focus revient automatiquement au bon endroit.
+
+💡 Résultat : vous savez exactement quoi faire pour avancer, sans stress.
+
+🧩 Des questionnaires mieux organisés et plus compréhensibles
+
+Nous avons restructuré plusieurs types de questions pour les rendre plus claires :
+
+🗂️ Groupes de réponses mieux identifiés (Oui/Non, listes, cases à cocher…)
+
+👀 Landmarks HTML corrects comme header, main, footer role="contentinfo"
+👉 LimeSurvey ne les utilise pas nativement : nous les avons ajoutés pour aider les lecteurs d’écran à comprendre la structure de la page.
+
+🧱 Champs obligatoires uniquement lorsque la question est visible
+
+🚫 Plus d’erreurs causées par des champs cachés
+
+➡️ Les questionnaires sont plus logiques, plus lisibles, et les outils d’accessibilité s’y repèrent mieux.
+
+🎨 Un affichage plus confortable : contraste, couleurs et focus visibles
+
+Pour améliorer la lisibilité et le confort visuel :
+
+🎨 Corrections des contrastes et des couleurs trop faibles
+
+🔍 Focus beaucoup plus visible sur :
+
+les boutons radio 🔘
+
+les cases à cocher ☑️
+👉 Un contour net + un fond clair vous montrent exactement où se situe la sélection au clavier.
+
+Ces améliorations profitent autant aux personnes malvoyantes qu’aux utilisateurs naviguant au clavier.
+
+📅 Saisir une date, un email ou un numéro : enfin simple !
+
+Pour les champs souvent difficiles à remplir :
+
+🎯 Dates plus intuitives (séparées en Jour / Mois / Année)
+
+✉️ Champs email intelligents : clavier adapté sur smartphone
+
+📱 Champs téléphone et numérique optimisés
+
+💡 Pas de double calendrier confus (LimeSurvey en affichait souvent deux)
+
+➡️ Moins d’erreurs, moins de frustration, plus de rapidité.
+
+💬 “Autre, précisez” devient clair et logique
+
+L’option “Autre” est désormais gérée intelligemment :
+
+✨ Le champ texte n’apparaît que si vous choisissez réellement Autre
+
+🔁 Vous tapez du texte → la case “Autre” se coche automatiquement
+
+😌 Plus de messages d’erreur incohérents sur des champs que vous n’avez pas sélectionnés
+
+Simple. Naturel. Transparent.
+
+🗣️ Messages accessibles et retours vocaux pour les lecteurs d’écran
+
+Les informations importantes sont désormais correctement annoncées :
+
+🔔 Les alertes sont lues au bon moment
+
+🤫 Les simples textes d’aide ne sont plus annoncés comme des “alertes”
+
+⏳ Lorsque vous cliquez sur Envoyer, un message discret annonce :
+“Votre formulaire est en cours de traitement.”
+
+✅ Et surtout : un message final rassurant
+
+À la fin du questionnaire, un message avec un rôle d’alerte indique clairement :
+👉 “Vos réponses ont bien été enregistrées.”
+
+Cela évite tout doute et rassure sur la bonne prise en compte du formulaire.
+
+⌨️ Confort renforcé pour les utilisateurs au clavier
+
+Pour les personnes naviguant sans souris :
+
+🧭 La touche Entrée permet d’avancer logiquement
+
+🎯 Le focus visuel est amplifié et mis en évidence
+
+♿ La navigation de question en question est plus fluide
+
+Une expérience plus agréable, plus cohérente, plus accessible.
+
+🤝 Une démarche d’accessibilité continue
+
+Ce pack est développé et maintenu par la
+Direction du numérique – Service DAWAM • Université de Lille,
+dans une volonté de respecter les bonnes pratiques du RGAA 4 et d’améliorer constamment le confort des usagers.
+
+📬 Contact : raphael.lecerf@univ-lille.fr / support-limesurvey@univ-lille.fr
