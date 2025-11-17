@@ -8,7 +8,7 @@ Que vous utilisiez un ordinateur, un smartphone, un clavier, une synthèse vocal
 
 🧭 Une navigation plus fluide : une seule question à corriger à la fois
 
-Pour éviter la surcharge d’informations :
+<b>Pour éviter la surcharge d’informations :</b>
 
 ✔️ La validation se fait pas à pas : le formulaire pointe la première question qui pose problème.
 
