@@ -5,7 +5,7 @@
     ✨ Des questionnaires en ligne plus simples, plus clairs, plus accessibles
   </h1>
   <p style="text-align:center;color:#555;">
-    Université de Lille • Pack Accessibilité LimeSurvey
+    <r>Université de Lille • Pack Accessibilité LimeSurvey</b>
   </p>
 </header>
 
