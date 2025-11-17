@@ -1,113 +1,116 @@
-✨ Des questionnaires en ligne plus simples, plus clairs, plus accessibles
-Université de Lille • Pack Accessibilité LimeSurvey
+<section class="accessibilite-ls" style="max-width:900px;margin:auto;font-size:1.1rem;line-height:1.6;">
 
-À l’Université de Lille, nous avons profondément amélioré l’expérience des questionnaires LimeSurvey afin qu’ils soient plus agréables, plus intuitifs et plus accessibles à tous 😄
+<header>
+  <h1 style="text-align:center;font-size:2rem;margin-bottom:1rem;">
+    ✨ Des questionnaires en ligne plus simples, plus clairs, plus accessibles
+  </h1>
+  <p style="text-align:center;color:#555;">
+    Université de Lille • Pack Accessibilité LimeSurvey
+  </p>
+</header>
 
-Que vous utilisiez un ordinateur, un smartphone, un clavier, une synthèse vocale ou que vous soyez simplement peu à l’aise avec le numérique…
-👉 notre objectif est simple : moins de contraintes, plus de clarté.
+<main role="main">
 
-🧭 Une navigation plus fluide : une seule question à corriger à la fois
+  <p>
+    À l’Université de Lille, nous avons profondément amélioré l’expérience des questionnaires LimeSurvey pour les rendre 
+    <strong>plus agréables, plus intuitifs et plus accessibles à tous</strong> 😄  
+    Que vous utilisiez un ordinateur, un smartphone, un clavier ou un lecteur d’écran…  
+    <strong>moins de contraintes, plus de clarté.</strong>
+  </p>
 
-<b>Pour éviter la surcharge d’informations :</b>
+  <hr>
 
-✔️ La validation se fait pas à pas : le formulaire pointe la première question qui pose problème.
+  <!-- NAVIGATION -->
+  <h2>🧭 Une navigation plus fluide : une seule question à corriger à la fois</h2>
+  <ul>
+    <li>✔️ Validation <strong>pas à pas</strong> : seule la première question en erreur est affichée.</li>
+    <li>✔️ Message d’erreur affiché directement auprès de la question concernée.</li>
+    <li>✔️ Focus automatique sur l’endroit à corriger.</li>
+  </ul>
+  <p>💡 Résultat : vous savez <strong>exactement quoi faire</strong> pour avancer, sans stress.</p>
 
-✔️ Le message d’erreur s’affiche directement à côté de la question concernée.
+  <hr>
 
-✔️ Le focus revient automatiquement au bon endroit.
+  <!-- STRUCTURE -->
+  <h2>🧩 Des questionnaires mieux organisés et plus compréhensibles</h2>
+  <ul>
+    <li>🗂️ Groupes de réponses mieux identifiés (Oui/Non, listes, cases à cocher…).</li>
+    <li>👀 <strong>Utilisation correcte des landmarks HTML</strong> : 
+      <code>&lt;header&gt;</code>, <code>&lt;main role="main"&gt;</code>, 
+      <code>&lt;footer role="contentinfo"&gt;</code>.
+      <br><em>(LimeSurvey n’en utilise pas nativement, nous les avons ajoutés.)</em>
+    </li>
+    <li>🧱 Champs obligatoires seulement lorsqu’ils sont visibles.</li>
+    <li>🚫 Plus de blocages causés par des champs cachés ou non pertinents.</li>
+  </ul>
 
-💡 Résultat : vous savez exactement quoi faire pour avancer, sans stress.
+  <hr>
 
-🧩 Des questionnaires mieux organisés et plus compréhensibles
+  <!-- DESIGN -->
+  <h2>🎨 Un affichage plus confortable : contraste, couleurs et focus visibles</h2>
+  <ul>
+    <li>🎨 <strong>Correction des contrastes</strong> et couleurs trop faibles.</li>
+    <li>🔍 <strong>Focus clavier renforcé</strong> sur les boutons radio 🔘 et cases à cocher ☑️ : contour net + fond clair.</li>
+    <li>🖱️ Meilleure visibilité pour les utilisateurs au clavier ou malvoyants.</li>
+  </ul>
 
-Nous avons restructuré plusieurs types de questions pour les rendre plus claires :
+  <hr>
 
-🗂️ Groupes de réponses mieux identifiés (Oui/Non, listes, cases à cocher…)
+  <!-- CHAMPS -->
+  <h2>📅 Saisir une date, un email ou un numéro : enfin simple</h2>
+  <ul>
+    <li>📅 Dates en trois champs clairs : <strong>Jour / Mois / Année</strong>.</li>
+    <li>✉️ Champs email optimisés pour smartphone (clavier email).</li>
+    <li>📱 Téléphone et chiffres : saisie numérique adaptée.</li>
+    <li>🗑️ Suppression des calendriers doublons de LimeSurvey.</li>
+  </ul>
 
-👀 Landmarks HTML corrects comme header, main, footer role="contentinfo"
-👉 LimeSurvey ne les utilise pas nativement : nous les avons ajoutés pour aider les lecteurs d’écran à comprendre la structure de la page.
+  <hr>
 
-🧱 Champs obligatoires uniquement lorsque la question est visible
+  <!-- AUTRE -->
+  <h2>💬 “Autre, précisez” devient clair et logique</h2>
+  <ul>
+    <li>✨ Le champ texte “Autre” apparaît uniquement si l’option “Autre” est choisie.</li>
+    <li>🔁 Taper du texte coche automatiquement “Autre”.</li>
+    <li>😌 Plus de messages d’erreur sur des commentaires non concernés.</li>
+  </ul>
 
-🚫 Plus d’erreurs causées par des champs cachés
+  <hr>
 
-➡️ Les questionnaires sont plus logiques, plus lisibles, et les outils d’accessibilité s’y repèrent mieux.
+  <!-- ARIA -->
+  <h2>🗣️ Messages accessibles et retours vocaux</h2>
+  <ul>
+    <li>🔔 Alerte correctement annoncée par les lecteurs d’écran au bon moment.</li>
+    <li>🤫 Les textes d’aide ne sont plus lus comme des “alertes”.</li>
+    <li>⏳ Message vocal lors de l’envoi : “Votre formulaire est en cours de traitement.”</li>
+    <li>🎉 <strong>Message final avec rôle d’alerte :</strong>  
+      “Vos réponses ont bien été enregistrées.”</li>
+  </ul>
 
-🎨 Un affichage plus confortable : contraste, couleurs et focus visibles
+  <hr>
 
-Pour améliorer la lisibilité et le confort visuel :
+  <!-- CLAVIER -->
+  <h2>⌨️ Confort renforcé pour les utilisateurs au clavier</h2>
+  <ul>
+    <li>↩️ La touche <strong>Entrée</strong> permet d’avancer logiquement.</li>
+    <li>🎯 Indicateur de focus visuel beaucoup plus net.</li>
+    <li>♿ Navigation fluide sans souris.</li>
+  </ul>
 
-🎨 Corrections des contrastes et des couleurs trop faibles
+  <hr>
 
-🔍 Focus beaucoup plus visible sur :
+  <!-- FOOT -->
+  <footer role="contentinfo">
+    <h2>🤝 Une démarche d’accessibilité continue</h2>
+    <p>
+      Ce pack est développé par la <strong>Direction du numérique – Service DAWAM • Université de Lille</strong>, 
+      dans une volonté de respecter les bonnes pratiques du <strong>RGAA 4</strong> et d'améliorer constamment l’expérience utilisateur.
+    </p>
+    <p>
+      📬 Contact : <a href="mailto:raphael.lecerf@univ-lille.fr">raphael.lecerf@univ-lille.fr</a>
+    </p>
+  </footer>
 
-les boutons radio 🔘
+</main>
 
-les cases à cocher ☑️
-👉 Un contour net + un fond clair vous montrent exactement où se situe la sélection au clavier.
-
-Ces améliorations profitent autant aux personnes malvoyantes qu’aux utilisateurs naviguant au clavier.
-
-📅 Saisir une date, un email ou un numéro : enfin simple !
-
-Pour les champs souvent difficiles à remplir :
-
-🎯 Dates plus intuitives (séparées en Jour / Mois / Année)
-
-✉️ Champs email intelligents : clavier adapté sur smartphone
-
-📱 Champs téléphone et numérique optimisés
-
-💡 Pas de double calendrier confus (LimeSurvey en affichait souvent deux)
-
-➡️ Moins d’erreurs, moins de frustration, plus de rapidité.
-
-💬 “Autre, précisez” devient clair et logique
-
-L’option “Autre” est désormais gérée intelligemment :
-
-✨ Le champ texte n’apparaît que si vous choisissez réellement Autre
-
-🔁 Vous tapez du texte → la case “Autre” se coche automatiquement
-
-😌 Plus de messages d’erreur incohérents sur des champs que vous n’avez pas sélectionnés
-
-Simple. Naturel. Transparent.
-
-🗣️ Messages accessibles et retours vocaux pour les lecteurs d’écran
-
-Les informations importantes sont désormais correctement annoncées :
-
-🔔 Les alertes sont lues au bon moment
-
-🤫 Les simples textes d’aide ne sont plus annoncés comme des “alertes”
-
-⏳ Lorsque vous cliquez sur Envoyer, un message discret annonce :
-“Votre formulaire est en cours de traitement.”
-
-✅ Et surtout : un message final rassurant
-
-À la fin du questionnaire, un message avec un rôle d’alerte indique clairement :
-👉 “Vos réponses ont bien été enregistrées.”
-
-Cela évite tout doute et rassure sur la bonne prise en compte du formulaire.
-
-⌨️ Confort renforcé pour les utilisateurs au clavier
-
-Pour les personnes naviguant sans souris :
-
-🧭 La touche Entrée permet d’avancer logiquement
-
-🎯 Le focus visuel est amplifié et mis en évidence
-
-♿ La navigation de question en question est plus fluide
-
-Une expérience plus agréable, plus cohérente, plus accessible.
-
-🤝 Une démarche d’accessibilité continue
-
-Ce pack est développé et maintenu par la
-Direction du numérique – Service DAWAM • Université de Lille,
-dans une volonté de respecter les bonnes pratiques du RGAA 4 et d’améliorer constamment le confort des usagers.
-
-📬 Contact : raphael.lecerf@univ-lille.fr / support-limesurvey@univ-lille.fr
+</section>
