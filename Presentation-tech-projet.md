@@ -388,7 +388,7 @@
   <ul>
     <li>Ajout des balises structurantes :
       <ul>
-        <li><code>&lt;header&gt;</code></li>
+        <li><code>&lt;header role="banner"&gt;</code></li>
         <li><code>&lt;main role="main"&gt;</code></li>
         <li><code>&lt;footer role="contentinfo"&gt;</code></li>
       </ul>
