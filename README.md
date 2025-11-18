@@ -36,7 +36,7 @@
   <ul>
     <li>🗂️ Groupes de réponses mieux identifiés (Oui/Non, listes, cases à cocher…).</li>
     <li>👀 <strong>Utilisation correcte des landmarks HTML</strong> : 
-      <code>&lt;header&gt;</code>, <code>&lt;main role="main"&gt;</code>, 
+      <code>&lt;header role="banner"&gt;</code>, <code>&lt;main role="main"&gt;</code>, 
       <code>&lt;footer role="contentinfo"&gt;</code>.
       <br><em>(LimeSurvey n’en utilise pas nativement, nous les avons ajoutés.)</em>
     </li>
