@@ -99,6 +99,62 @@
 
   <hr>
 
+  ✅ 1) NOTICE TECHNIQUE – pour GitHub (développeurs LimeSurvey / DAWAM)
+📌 Objectif du module 4f–4g
+
+Ces deux scripts JS constituent une extension avancée de gestion de la visibilité des questions LimeSurvey, en assurant :
+
+la cohérence entre pertinence EM et affichage réel dans le DOM,
+
+la correction automatique des questions redevenues pertinentes,
+
+la gestion générique des questions dépendantes du type “Si oui, …”, même sans Expression Manager,
+
+la garantie que l’utilisateur ne sera jamais bloqué par des réponses résiduelles, invisibles ou non pertinentes,
+
+la compatibilité RGAA / UX : focus, aria-hidden, required, etc.
+
+🧩 4f — Unhide automatique des questions redevenues pertinentes
+🎯 Problème adressé
+
+LimeSurvey laisse parfois des questions masquées (ls-hidden, hidden, display:none) même après que l’Expression Manager les redevienne pertinentes (EM : relevance = 1).
+
+Cela crée des effets indésirables :
+
+questions visuellement absentes mais techniquement attendues,
+
+required résiduel sur des inputs invisibles,
+
+widgets impossibles à corriger,
+
+incohérences clavier / lecteur d'écran (aria-hidden mal géré).
+
+🛠️ Fonctionnement du script
+
+Le module 4f :
+
+Au chargement, scanne toutes les questions (fieldset|div[id^=question]).
+
+Pour chaque question :
+
+si elle n'est plus ls-irrelevant,
+
+mais reste ls-hidden / hidden / display:none,
+👉 il la réaffiche proprement.
+
+Surveille les mutations du DOM (checkconditions) :
+
+dès que LS enlève ls-irrelevant,
+
+mais oublie de réafficher la question,
+👉 le script corrige automatiquement.
+
+🔒 Protection : ne jamais ouvrir une question masquée volontairement
+
+Si une question est masquée manuellement via JS (module 4g), elle prend :
+
+<hr>
+
   <!-- FOOT -->
   <footer role="contentinfo">
     <h2>🤝 Une démarche d’accessibilité continue</h2>
