@@ -99,59 +99,171 @@
 
   <hr>
 
-  ✅ 1) NOTICE TECHNIQUE – pour GitHub (développeurs LimeSurvey / DAWAM)
-📌 Objectif du module 4f–4g
+<section id="notice-technique-4f-4g" style="max-width:900px;margin:auto;line-height:1.6;font-size:1rem;">
 
-Ces deux scripts JS constituent une extension avancée de gestion de la visibilité des questions LimeSurvey, en assurant :
+  <h2>Notice technique – Modules 4f et 4g (LimeSurvey)</h2>
 
-la cohérence entre pertinence EM et affichage réel dans le DOM,
+  <p>
+    Ces deux scripts JavaScript complètent le pack d’accessibilité LimeSurvey en apportant une
+    gestion robuste de la <strong>visibilité des questions conditionnelles</strong> :
+    synchronisation avec l’Expression Manager, masquage manuel maîtrisé, nettoyage des réponses
+    et logique générique pour les questions de type <em>“Si oui…”</em>.
+  </p>
 
-la correction automatique des questions redevenues pertinentes,
+  <h3>Objectifs principaux</h3>
+  <ul>
+    <li>Assurer la cohérence entre la <strong>pertinence EM</strong> (relevance) et l’<strong>affichage réel</strong> dans le DOM.</li>
+    <li>Corriger automatiquement les questions qui redeviennent pertinentes mais restent masquées.</li>
+    <li>Gérer de façon générique les questions dépendantes de type <strong>“Si oui, …”</strong> sans Expression Manager.</li>
+    <li>Éviter tout blocage lié à des réponses résiduelles sur des questions masquées.</li>
+    <li>Respecter les règles d’accessibilité (aria-hidden, focus, required, etc.).</li>
+  </ul>
 
-la gestion générique des questions dépendantes du type “Si oui, …”, même sans Expression Manager,
+  <hr>
 
-la garantie que l’utilisateur ne sera jamais bloqué par des réponses résiduelles, invisibles ou non pertinentes,
+  <h3>4f – Réaffichage automatique des questions redevenues pertinentes</h3>
 
-la compatibilité RGAA / UX : focus, aria-hidden, required, etc.
+  <h4>Problème adressé</h4>
+  <p>
+    LimeSurvey laisse parfois des questions en état masqué (<code>ls-hidden</code>, <code>hidden</code>,
+    <code>display:none</code>) alors que l’Expression Manager les considère de nouveau pertinentes
+    (relevance = 1). Cela peut provoquer :
+  </p>
+  <ul>
+    <li>des questions “fantômes” attendues mais invisibles ;</li>
+    <li>des erreurs sur des champs <code>required</code> non visibles ;</li>
+    <li>des incohérences de navigation au clavier et pour les lecteurs d’écran.</li>
+  </ul>
 
-🧩 4f — Unhide automatique des questions redevenues pertinentes
-🎯 Problème adressé
+  <h4>Principe de fonctionnement</h4>
+  <ul>
+    <li>Au chargement (<code>DOMContentLoaded</code>), le script parcourt toutes les questions :
+      <code>fieldset[id^="question"]</code> et <code>div[id^="question"]</code>.
+    </li>
+    <li>Pour chaque question :
+      <ul>
+        <li>si l’ID commence par <code>question</code>,</li>
+        <li>si la question n’est plus <code>ls-irrelevant</code>,</li>
+        <li>si elle est encore masquée (<code>ls-hidden</code>, <code>hidden</code> ou <code>display:none</code>),</li>
+        <li>et si elle n’a pas été masquée volontairement par JS (<code>data-ls-manual-hide="1"</code>),</li>
+      </ul>
+      alors la fonction <code>unhideIfRelevant()</code> la réaffiche.
+    </li>
+    <li>Un <code>MutationObserver</code> surveille ensuite les changements de classe :
+      dès qu’une question voit son <code>ls-irrelevant</code> enlevé par LimeSurvey,
+      <code>unhideIfRelevant()</code> est relancé.
+    </li>
+  </ul>
 
-LimeSurvey laisse parfois des questions masquées (ls-hidden, hidden, display:none) même après que l’Expression Manager les redevienne pertinentes (EM : relevance = 1).
+  <h4>Normalisation accessibilité appliquée</h4>
+  <p>Lorsque la question est réaffichée, le script :</p>
+  <ul>
+    <li>retire <code>ls-hidden</code> ;</li>
+    <li>retire l’attribut <code>hidden</code> ;</li>
+    <li>réinitialise <code>style.display</code> si nécessaire ;</li>
+    <li>positionne <code>aria-hidden="false"</code>.</li>
+  </ul>
 
-Cela crée des effets indésirables :
+  <h4>Respect du masquage manuel</h4>
+  <p>
+    Si une question est masquée volontairement par le module 4g, elle porte
+    <code>data-ls-manual-hide="1"</code>. Dans ce cas, <code>unhideIfRelevant()</code> ne la réouvrira
+    pas, même si l’Expression Manager la juge pertinente.
+  </p>
 
-questions visuellement absentes mais techniquement attendues,
+  <hr>
 
-required résiduel sur des inputs invisibles,
+  <h3>4g – Gestion générique des questions “Si oui, …”</h3>
 
-widgets impossibles à corriger,
+  <h4>Objectif</h4>
+  <p>
+    Proposer un mécanisme générique pour gérer les questions dépendantes,
+    typiquement : « Si oui, précisez : … », sans avoir à écrire des conditions
+    Expression Manager pour chaque cas.
+  </p>
 
-incohérences clavier / lecteur d'écran (aria-hidden mal géré).
+  <h4>Détection des questions enfants</h4>
+  <p>Une question enfant est détectée si :</p>
+  <ul>
+    <li>le texte de son <code>&lt;legend&gt;</code> commence par <strong>“Si oui”</strong> (en minuscules après trim), ou</li>
+    <li>la question possède la classe CSS <code>si-oui-child</code>.</li>
+  </ul>
 
-🛠️ Fonctionnement du script
+  <p>
+    La fonction <code>initSiOuiQuestions()</code> parcourt tous les
+    <code>fieldset.question-container</code> du DOM et identifie automatiquement ces questions enfants.
+  </p>
 
-Le module 4f :
+  <h4>Détermination de la question parente</h4>
+  <ul>
+    <li>La question parente est recherchée via <code>previousElementSibling</code> en remontant
+      jusqu’au précédent <code>fieldset.question-container</code> ou <code>div.question-container</code>.
+    </li>
+    <li>Si aucune question parente n’est trouvée, le couple parent/enfant est ignoré.</li>
+  </ul>
 
-Au chargement, scanne toutes les questions (fieldset|div[id^=question]).
+  <h4>Logique d’affichage / masquage</h4>
+  <p>La fonction <code>wireParentChildSiOui(parentQ, childQ)</code> :</p>
+  <ul>
+    <li>récupère tous les boutons radio de la question parente ;</li>
+    <li>analyse le libellé des options pour trouver une option contenant “oui” ;</li>
+    <li>si une option “Oui” est cochée → <strong>affiche</strong> la question enfant ;</li>
+    <li>sinon → <strong>masque</strong> la question enfant et nettoie ses réponses.</li>
+  </ul>
 
-Pour chaque question :
+  <h4>Masquage manuel contrôlé</h4>
+  <p>Lorsqu’une question enfant est masquée par 4g :</p>
+  <ul>
+    <li>elle reçoit <code>data-ls-manual-hide="1"</code> ;</li>
+    <li>la classe <code>ls-hidden</code> est ajoutée ;</li>
+    <li>les attributs <code>hidden="hidden"</code> et <code>aria-hidden="true"</code> sont posés ;</li>
+    <li><code>style.display = "none"</code> est appliqué.</li>
+  </ul>
 
-si elle n'est plus ls-irrelevant,
+  <p>
+    Ce marquage garantit que 4f ne la réaffichera pas tant que l’utilisateur n’a pas mis “Oui” sur la
+    question parente.
+  </p>
 
-mais reste ls-hidden / hidden / display:none,
-👉 il la réaffiche proprement.
+  <h4>Nettoyage des réponses</h4>
+  <p>Lors du masquage, 4g nettoie systématiquement les réponses de la question enfant :</p>
+  <ul>
+    <li>radios et checkboxes : <code>checked = false</code> ;</li>
+    <li>listes déroulantes : <code>selectedIndex = 0</code> ;</li>
+    <li>champs texte / textarea : <code>value = ""</code> ;</li>
+    <li>attribut <code>required</code> retiré de tous les champs.</li>
+  </ul>
 
-Surveille les mutations du DOM (checkconditions) :
+  <p>
+    Cela évite les validations bloquantes sur des réponses non visibles et maintient la
+    cohérence des données côté serveur.
+  </p>
 
-dès que LS enlève ls-irrelevant,
+  <h4>Accessibilité</h4>
+  <ul>
+    <li>Le masquage utilise <code>aria-hidden="true"</code> + <code>hidden</code> + <code>display:none</code> pour
+      sortir la question du flux accessible.</li>
+    <li>L’affichage remet <code>aria-hidden="false"</code> et retire les attributs de masquage.</li>
+    <li>Aucune question masquée n’est laissée avec des champs <code>required</code>.</li>
+  </ul>
 
-mais oublie de réafficher la question,
-👉 le script corrige automatiquement.
+  <hr>
 
-🔒 Protection : ne jamais ouvrir une question masquée volontairement
+  <h3>Intégration</h3>
+  <ul>
+    <li>Les scripts 4f et 4g peuvent être intégrés dans le fichier de thème (ex. <code>template.js</code>) de LimeSurvey.</li>
+    <li>Ils reposent sur les classes standard LimeSurvey (<code>question-container</code>, <code>ls-hidden</code>,
+      <code>ls-irrelevant</code>, etc.).</li>
+    <li>Ils sont compatibles avec la navigation PJAX (<code>pjax:success</code>).</li>
+  </ul>
 
-Si une question est masquée manuellement via JS (module 4g), elle prend :
+  <p>
+    Ensemble, ces modules renforcent la cohérence, la stabilité et l’accessibilité des questionnaires,
+    en particulier pour les questions conditionnelles et les parcours complexes.
+  </p>
+
+</section>
+
 
 <hr>
 
