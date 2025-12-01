@@ -1,7 +1,8 @@
 <p align="center">
   <strong>✨ Des questionnaires en ligne plus simples, plus clairs, plus accessibles</strong><br>
   Université de Lille • Pack Accessibilité LimeSurvey<br>
-  Compatible 6.3.9+231211 / 6.15.22+251103 • Version mise à jour le 21/11/2025
+  Compatible 6.3.9+231211 / 6.15.22+251103 • Version mise à jour le 01/12/2025<br />
+  - Licence : CC BY-NC-SA -
 </p>
 
 ---
