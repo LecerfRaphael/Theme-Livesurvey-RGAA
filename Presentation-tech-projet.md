@@ -1,7 +1,8 @@
 <section id="ameliorations-accessibilite" style="max-width:900px;margin:auto;line-height:1.6;font-size:1.05rem;">
 
-  <h2>1. Détail des améliorations pour l’accessibilité (mise à jour le 21-11-2025)</h2>
+  <h2>1. Détail des améliorations pour l’accessibilité (mise à jour le 01-12-2025)</h2>
   <p>Les optimisations ci-dessous sont regroupées par grandes thématiques RGAA / UX.</p>
+  <p>- Licence : CC BY-NC-SA - </p>
 
   <!-- A) STRUCTURE -->
   <h3>A. Structure sémantique et navigation lecteur d’écran</h3>
