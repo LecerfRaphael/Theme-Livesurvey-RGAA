@@ -1,6 +1,6 @@
 <section id="ameliorations-accessibilite" style="max-width:900px;margin:auto;line-height:1.6;font-size:1.05rem;">
 
-  <h2>1. Détail des améliorations pour l’accessibilité (mise à jour le 01-12-2025)</h2>
+  <h2>1. Détail des améliorations pour l’accessibilité (mise à jour le 02-12-2025)</h2>
   <p>Les optimisations ci-dessous sont regroupées par grandes thématiques RGAA / UX.</p>
   <p>- Licence : CC BY-NC-SA - </p>
 
@@ -114,7 +114,8 @@
       <code>&lt;select class="month"&gt;</code>,
       <code>&lt;select class="year"&gt;</code>.
     </li>
-    <li>En cas d’erreur → focus sur le premier select vide.</li>
+    <li>En cas d’erreur → focus sur le premier select vide, avec message spécifique :
+      “Veuillez renseigner le jour / le mois / l’année”.</li>
     <li>Placeholders ajoutés : “Jour”, “Mois”, “Année”.</li>
   </ul>
 
@@ -122,7 +123,7 @@
   <ul>
     <li>Focus uniquement sur des éléments visibles → meilleure accessibilité clavier.</li>
     <li>Structure plus claire pour les lecteurs d’écran (3 champs explicites).</li>
-    <li>Message d’erreur précis et compréhensible.</li>
+    <li>Message d’erreur précis et compréhensible pour les dates incomplètes ou invalides.</li>
   </ul>
 
   <h4>2) Masquage des calendriers natifs doublons</h4>
@@ -141,7 +142,7 @@
     <li>Aucun double calendrier perturbant la navigation clavier ou assistée.</li>
   </ul>
 
-  <h4>3) Auto-type pour email, téléphone, nombre et date</h4>
+  <h4>3) Auto-type pour email, téléphone, nombre, date + contrôle de longueur</h4>
   <p><strong>Script concerné :</strong> bloc 6).</p>
 
   <ul>
@@ -154,6 +155,14 @@
       </ul>
     </li>
     <li>Placeholders adaptés (ex : “prenom.nom@organisme.fr”).</li>
+    <li>Lecture des attributs <code>size</code> / <code>maxlength</code> sur les champs texte / nombre et mise en place
+      d’un <strong>contrôle de longueur</strong> :
+      <ul>
+        <li>surveillance de la saisie ;</li>
+        <li>alerte explicite lorsqu’on atteint la taille maximale attendue ;</li>
+        <li>message compatible lecteurs d’écran (aria-live) et mise en forme visuelle de l’erreur.</li>
+      </ul>
+    </li>
   </ul>
 
   <p><strong>Bénéfices :</strong></p>
@@ -161,9 +170,11 @@
     <li>Clavier mobile adapté (email, téléphone, numérique).</li>
     <li>Validation native plus propre (format, chiffres…).</li>
     <li>Expérience plus fluide sur smartphone et tablette.</li>
+    <li>Prévention des erreurs de dépassement de longueur avant la validation finale.</li>
   </ul>
 
 </section>
+
 <section id="ameliorations-accessibilite-suite" style="max-width:900px;margin:auto;line-height:1.6;font-size:1.05rem;">
 
   <!-- D) AUTRE -->
@@ -260,7 +271,7 @@
   <hr>
 
   <!-- E) ARIA-LIVE -->
-  <h3>E. Messages d’alerte, aria-live et feedback utilisateur</h3>
+  <h3>E. Messages d’alerte, aria-live, bandeau d’accessibilité et feedback utilisateur</h3>
 
   <h4>1) Zone aria-live discrète pour les messages système</h4>
   <p><strong>Script concerné :</strong> bloc 7.5</p>
@@ -273,6 +284,7 @@
       </ul>
     </li>
     <li>Annonce “Votre formulaire est en cours de traitement” au clic sur Envoyer.</li>
+    <li>Réutilisation de cette zone pour les messages courts (ex. dépassement de longueur, info de correction…).</li>
   </ul>
 
   <p><strong>Bénéfices :</strong></p>
@@ -281,7 +293,30 @@
     <li>Évite les doubles clics paniqués.</li>
   </ul>
 
-  <h4>2) Modal d’alerte Bootstrap : aria-live dynamique</h4>
+  <h4>2) Bandeau d’alerte accessibilité global</h4>
+  <p><strong>Script concerné :</strong> partie “accessibility-alert / aria-live global”.</p>
+
+  <ul>
+    <li>Ajout d’un bandeau récapitulatif (en haut de page) qui :
+      <ul>
+        <li>résume la première erreur bloquante rencontrée ;</li>
+        <li>indique la question concernée (titre / numéro) ;</li>
+        <li>est placé dans une zone <code>aria-live="assertive"</code>.</li>
+      </ul>
+    </li>
+    <li>Le bandeau est mis à jour à chaque tentative de validation.</li>
+    <li>Il disparaît automatiquement dès que toutes les erreurs sont corrigées.</li>
+    <li>Un bouton de fermeture accessible au clavier (ESC / Tab) est prévu si nécessaire.</li>
+  </ul>
+
+  <p><strong>Bénéfices :</strong></p>
+  <ul>
+    <li>Vision globale des erreurs pour tous les utilisateurs.</li>
+    <li>Retour vocal immédiat pour les technologies d’assistance.</li>
+    <li>Aucun message résiduel lorsque le formulaire est corrigé.</li>
+  </ul>
+
+  <h4>3) Modal d’alerte Bootstrap : aria-live dynamique</h4>
   <p><strong>Script concerné :</strong> bloc 7.6</p>
 
   <ul>
@@ -304,7 +339,7 @@
     <li>Évite des annonces inutiles lorsque la modal n’est pas visible.</li>
   </ul>
 
-  <h4>3) Message final de confirmation</h4>
+  <h4>4) Message final de confirmation</h4>
   <ul>
     <li>Ajout d’un message avec <code>role="alert"</code> indiquant :  
       <strong>“Vos réponses ont bien été enregistrées.”</strong></li>
@@ -317,176 +352,178 @@
   </ul>
 
   <hr>
+
   <section id="notice-technique-4f-4g" style="max-width:900px;margin:auto;line-height:1.6;font-size:1rem;">
 
-  <h2>Notice technique – Modules 4f et 4g (LimeSurvey)</h2>
+    <h2>Notice technique – Modules 4f et 4g (LimeSurvey)</h2>
 
-  <p>
-    Ces deux scripts JavaScript complètent le pack d’accessibilité LimeSurvey en apportant une
-    gestion robuste de la <strong>visibilité des questions conditionnelles</strong> :
-    synchronisation avec l’Expression Manager, masquage manuel maîtrisé, nettoyage des réponses
-    et logique générique pour les questions de type <em>“Si oui…”</em>.
-  </p>
+    <p>
+      Ces deux scripts JavaScript complètent le pack d’accessibilité LimeSurvey en apportant une
+      gestion robuste de la <strong>visibilité des questions conditionnelles</strong> :
+      synchronisation avec l’Expression Manager, masquage manuel maîtrisé, nettoyage des réponses
+      et logique générique pour les questions de type <em>“Si oui…”</em>.
+    </p>
 
-  <h3>Objectifs principaux</h3>
-  <ul>
-    <li>Assurer la cohérence entre la <strong>pertinence EM</strong> (relevance) et l’<strong>affichage réel</strong> dans le DOM.</li>
-    <li>Corriger automatiquement les questions qui redeviennent pertinentes mais restent masquées.</li>
-    <li>Gérer de façon générique les questions dépendantes de type <strong>“Si oui, …”</strong> sans Expression Manager.</li>
-    <li>Éviter tout blocage lié à des réponses résiduelles sur des questions masquées.</li>
-    <li>Respecter les règles d’accessibilité (aria-hidden, focus, required, etc.).</li>
-  </ul>
+    <h3>Objectifs principaux</h3>
+    <ul>
+      <li>Assurer la cohérence entre la <strong>pertinence EM</strong> (relevance) et l’<strong>affichage réel</strong> dans le DOM.</li>
+      <li>Corriger automatiquement les questions qui redeviennent pertinentes mais restent masquées.</li>
+      <li>Gérer de façon générique les questions dépendantes de type <strong>“Si oui, …”</strong> sans Expression Manager.</li>
+      <li>Éviter tout blocage lié à des réponses résiduelles sur des questions masquées.</li>
+      <li>Respecter les règles d’accessibilité (aria-hidden, focus, required, etc.).</li>
+    </ul>
+
+    <hr>
+
+    <h3>4f – Réaffichage automatique des questions redevenues pertinentes</h3>
+
+    <h4>Problème adressé</h4>
+    <p>
+      LimeSurvey laisse parfois des questions en état masqué (<code>ls-hidden</code>, <code>hidden</code>,
+      <code>display:none</code>) alors que l’Expression Manager les considère de nouveau pertinentes
+      (relevance = 1). Cela peut provoquer :
+    </p>
+    <ul>
+      <li>des questions “fantômes” attendues mais invisibles ;</li>
+      <li>des erreurs sur des champs <code>required</code> non visibles ;</li>
+      <li>des incohérences de navigation au clavier et pour les lecteurs d’écran.</li>
+    </ul>
+
+    <h4>Principe de fonctionnement</h4>
+    <ul>
+      <li>Au chargement (<code>DOMContentLoaded</code>), le script parcourt toutes les questions :
+        <code>fieldset[id^="question"]</code> et <code>div[id^="question"]</code>.
+      </li>
+      <li>Pour chaque question :
+        <ul>
+          <li>si l’ID commence par <code>question</code>,</li>
+          <li>si la question n’est plus <code>ls-irrelevant</code>,</li>
+          <li>si elle est encore masquée (<code>ls-hidden</code>, <code>hidden</code> ou <code>display:none</code>),</li>
+          <li>et si elle n’a pas été masquée volontairement par JS (<code>data-ls-manual-hide="1"</code>),</li>
+        </ul>
+        alors la fonction <code>unhideIfRelevant()</code> la réaffiche.
+      </li>
+      <li>Un <code>MutationObserver</code> surveille ensuite les changements de classe :
+        dès qu’une question voit son <code>ls-irrelevant</code> enlevé par LimeSurvey,
+        <code>unhideIfRelevant()</code> est relancé.
+      </li>
+    </ul>
+
+    <h4>Normalisation accessibilité appliquée</h4>
+    <p>Lorsque la question est réaffichée, le script :</p>
+    <ul>
+      <li>retire <code>ls-hidden</code> ;</li>
+      <li>retire l’attribut <code>hidden</code> ;</li>
+      <li>réinitialise <code>style.display</code> si nécessaire ;</li>
+      <li>positionne <code>aria-hidden="false"</code>.</li>
+    </ul>
+
+    <h4>Respect du masquage manuel</h4>
+    <p>
+      Si une question est masquée volontairement par le module 4g, elle porte
+      <code>data-ls-manual-hide="1"</code>. Dans ce cas, <code>unhideIfRelevant()</code> ne la réouvrira
+      pas, même si l’Expression Manager la juge pertinente.
+    </p>
+
+    <hr>
+
+    <h3>4g – Gestion générique des questions “Si oui, …”</h3>
+
+    <h4>Objectif</h4>
+    <p>
+      Proposer un mécanisme générique pour gérer les questions dépendantes,
+      typiquement : « Si oui, précisez : … », sans avoir à écrire des conditions
+      Expression Manager pour chaque cas.
+    </p>
+
+    <h4>Détection des questions enfants</h4>
+    <p>Une question enfant est détectée si :</p>
+    <ul>
+      <li>le texte de son <code>&lt;legend&gt;</code> commence par <strong>“Si oui”</strong> (en minuscules après trim), ou</li>
+      <li>la question possède la classe CSS <code>si-oui-child</code>.</li>
+    </ul>
+
+    <p>
+      La fonction <code>initSiOuiQuestions()</code> parcourt tous les
+      <code>fieldset.question-container</code> du DOM et identifie automatiquement ces questions enfants.
+    </p>
+
+    <h4>Détermination de la question parente</h4>
+    <ul>
+      <li>La question parente est recherchée via <code>previousElementSibling</code> en remontant
+        jusqu’au précédent <code>fieldset.question-container</code> ou <code>div.question-container</code>.
+      </li>
+      <li>Si aucune question parente n’est trouvée, le couple parent/enfant est ignoré.</li>
+    </ul>
+
+    <h4>Logique d’affichage / masquage</h4>
+    <p>La fonction <code>wireParentChildSiOui(parentQ, childQ)</code> :</p>
+    <ul>
+      <li>récupère tous les boutons radio de la question parente ;</li>
+      <li>analyse le libellé des options pour trouver une option contenant “oui” ;</li>
+      <li>si une option “Oui” est cochée → <strong>affiche</strong> la question enfant ;</li>
+      <li>sinon → <strong>masque</strong> la question enfant et nettoie ses réponses.</li>
+    </ul>
+
+    <h4>Masquage manuel contrôlé</h4>
+    <p>Lorsqu’une question enfant est masquée par 4g :</p>
+    <ul>
+      <li>elle reçoit <code>data-ls-manual-hide="1"</code> ;</li>
+      <li>la classe <code>ls-hidden</code> est ajoutée ;</li>
+      <li>les attributs <code>hidden="hidden"</code> et <code>aria-hidden="true"</code> sont posés ;</li>
+      <li><code>style.display = "none"</code> est appliqué.</li>
+    </ul>
+
+    <p>
+      Ce marquage garantit que 4f ne la réaffichera pas tant que l’utilisateur n’a pas mis “Oui” sur la
+      question parente.
+    </p>
+
+    <h4>Nettoyage des réponses</h4>
+    <p>Lors du masquage, 4g nettoie systématiquement les réponses de la question enfant :</p>
+    <ul>
+      <li>radios et checkboxes : <code>checked = false</code> ;</li>
+      <li>listes déroulantes : <code>selectedIndex = 0</code> ;</li>
+      <li>champs texte / textarea : <code>value = ""</code> ;</li>
+      <li>attribut <code>required</code> retiré de tous les champs.</li>
+    </ul>
+
+    <p>
+      Cela évite les validations bloquantes sur des réponses non visibles et maintient la
+      cohérence des données côté serveur.
+    </p>
+
+    <h4>Accessibilité</h4>
+    <ul>
+      <li>Le masquage utilise <code>aria-hidden="true"</code> + <code>hidden</code> + <code>display:none</code> pour
+        sortir la question du flux accessible.</li>
+      <li>L’affichage remet <code>aria-hidden="false"</code> et retire les attributs de masquage.</li>
+      <li>Aucune question masquée n’est laissée avec des champs <code>required</code>.</li>
+    </ul>
+
+    <hr>
+
+    <h3>Intégration</h3>
+    <ul>
+      <li>Les scripts 4f et 4g peuvent être intégrés dans le fichier de thème (ex. <code>template.js</code>) de LimeSurvey.</li>
+      <li>Ils reposent sur les classes standard LimeSurvey (<code>question-container</code>, <code>ls-hidden</code>,
+        <code>ls-irrelevant</code>, etc.).</li>
+      <li>Ils sont compatibles avec la navigation PJAX (<code>pjax:success</code>).</li>
+    </ul>
+
+    <p>
+      Ensemble, ces modules renforcent la cohérence, la stabilité et l’accessibilité des questionnaires,
+      en particulier pour les questions conditionnelles et les parcours complexes.
+    </p>
+
+  </section>
 
   <hr>
-
-  <h3>4f – Réaffichage automatique des questions redevenues pertinentes</h3>
-
-  <h4>Problème adressé</h4>
-  <p>
-    LimeSurvey laisse parfois des questions en état masqué (<code>ls-hidden</code>, <code>hidden</code>,
-    <code>display:none</code>) alors que l’Expression Manager les considère de nouveau pertinentes
-    (relevance = 1). Cela peut provoquer :
-  </p>
-  <ul>
-    <li>des questions “fantômes” attendues mais invisibles ;</li>
-    <li>des erreurs sur des champs <code>required</code> non visibles ;</li>
-    <li>des incohérences de navigation au clavier et pour les lecteurs d’écran.</li>
-  </ul>
-
-  <h4>Principe de fonctionnement</h4>
-  <ul>
-    <li>Au chargement (<code>DOMContentLoaded</code>), le script parcourt toutes les questions :
-      <code>fieldset[id^="question"]</code> et <code>div[id^="question"]</code>.
-    </li>
-    <li>Pour chaque question :
-      <ul>
-        <li>si l’ID commence par <code>question</code>,</li>
-        <li>si la question n’est plus <code>ls-irrelevant</code>,</li>
-        <li>si elle est encore masquée (<code>ls-hidden</code>, <code>hidden</code> ou <code>display:none</code>),</li>
-        <li>et si elle n’a pas été masquée volontairement par JS (<code>data-ls-manual-hide="1"</code>),</li>
-      </ul>
-      alors la fonction <code>unhideIfRelevant()</code> la réaffiche.
-    </li>
-    <li>Un <code>MutationObserver</code> surveille ensuite les changements de classe :
-      dès qu’une question voit son <code>ls-irrelevant</code> enlevé par LimeSurvey,
-      <code>unhideIfRelevant()</code> est relancé.
-    </li>
-  </ul>
-
-  <h4>Normalisation accessibilité appliquée</h4>
-  <p>Lorsque la question est réaffichée, le script :</p>
-  <ul>
-    <li>retire <code>ls-hidden</code> ;</li>
-    <li>retire l’attribut <code>hidden</code> ;</li>
-    <li>réinitialise <code>style.display</code> si nécessaire ;</li>
-    <li>positionne <code>aria-hidden="false"</code>.</li>
-  </ul>
-
-  <h4>Respect du masquage manuel</h4>
-  <p>
-    Si une question est masquée volontairement par le module 4g, elle porte
-    <code>data-ls-manual-hide="1"</code>. Dans ce cas, <code>unhideIfRelevant()</code> ne la réouvrira
-    pas, même si l’Expression Manager la juge pertinente.
-  </p>
-
-  <hr>
-
-  <h3>4g – Gestion générique des questions “Si oui, …”</h3>
-
-  <h4>Objectif</h4>
-  <p>
-    Proposer un mécanisme générique pour gérer les questions dépendantes,
-    typiquement : « Si oui, précisez : … », sans avoir à écrire des conditions
-    Expression Manager pour chaque cas.
-  </p>
-
-  <h4>Détection des questions enfants</h4>
-  <p>Une question enfant est détectée si :</p>
-  <ul>
-    <li>le texte de son <code>&lt;legend&gt;</code> commence par <strong>“Si oui”</strong> (en minuscules après trim), ou</li>
-    <li>la question possède la classe CSS <code>si-oui-child</code>.</li>
-  </ul>
-
-  <p>
-    La fonction <code>initSiOuiQuestions()</code> parcourt tous les
-    <code>fieldset.question-container</code> du DOM et identifie automatiquement ces questions enfants.
-  </p>
-
-  <h4>Détermination de la question parente</h4>
-  <ul>
-    <li>La question parente est recherchée via <code>previousElementSibling</code> en remontant
-      jusqu’au précédent <code>fieldset.question-container</code> ou <code>div.question-container</code>.
-    </li>
-    <li>Si aucune question parente n’est trouvée, le couple parent/enfant est ignoré.</li>
-  </ul>
-
-  <h4>Logique d’affichage / masquage</h4>
-  <p>La fonction <code>wireParentChildSiOui(parentQ, childQ)</code> :</p>
-  <ul>
-    <li>récupère tous les boutons radio de la question parente ;</li>
-    <li>analyse le libellé des options pour trouver une option contenant “oui” ;</li>
-    <li>si une option “Oui” est cochée → <strong>affiche</strong> la question enfant ;</li>
-    <li>sinon → <strong>masque</strong> la question enfant et nettoie ses réponses.</li>
-  </ul>
-
-  <h4>Masquage manuel contrôlé</h4>
-  <p>Lorsqu’une question enfant est masquée par 4g :</p>
-  <ul>
-    <li>elle reçoit <code>data-ls-manual-hide="1"</code> ;</li>
-    <li>la classe <code>ls-hidden</code> est ajoutée ;</li>
-    <li>les attributs <code>hidden="hidden"</code> et <code>aria-hidden="true"</code> sont posés ;</li>
-    <li><code>style.display = "none"</code> est appliqué.</li>
-  </ul>
-
-  <p>
-    Ce marquage garantit que 4f ne la réaffichera pas tant que l’utilisateur n’a pas mis “Oui” sur la
-    question parente.
-  </p>
-
-  <h4>Nettoyage des réponses</h4>
-  <p>Lors du masquage, 4g nettoie systématiquement les réponses de la question enfant :</p>
-  <ul>
-    <li>radios et checkboxes : <code>checked = false</code> ;</li>
-    <li>listes déroulantes : <code>selectedIndex = 0</code> ;</li>
-    <li>champs texte / textarea : <code>value = ""</code> ;</li>
-    <li>attribut <code>required</code> retiré de tous les champs.</li>
-  </ul>
-
-  <p>
-    Cela évite les validations bloquantes sur des réponses non visibles et maintient la
-    cohérence des données côté serveur.
-  </p>
-
-  <h4>Accessibilité</h4>
-  <ul>
-    <li>Le masquage utilise <code>aria-hidden="true"</code> + <code>hidden</code> + <code>display:none</code> pour
-      sortir la question du flux accessible.</li>
-    <li>L’affichage remet <code>aria-hidden="false"</code> et retire les attributs de masquage.</li>
-    <li>Aucune question masquée n’est laissée avec des champs <code>required</code>.</li>
-  </ul>
-
-  <hr>
-
-  <h3>Intégration</h3>
-  <ul>
-    <li>Les scripts 4f et 4g peuvent être intégrés dans le fichier de thème (ex. <code>template.js</code>) de LimeSurvey.</li>
-    <li>Ils reposent sur les classes standard LimeSurvey (<code>question-container</code>, <code>ls-hidden</code>,
-      <code>ls-irrelevant</code>, etc.).</li>
-    <li>Ils sont compatibles avec la navigation PJAX (<code>pjax:success</code>).</li>
-  </ul>
-
-  <p>
-    Ensemble, ces modules renforcent la cohérence, la stabilité et l’accessibilité des questionnaires,
-    en particulier pour les questions conditionnelles et les parcours complexes.
-  </p>
-
-</section>
-<hr>
 
   <!-- F) VALIDATION -->
-  <h3>F. Validation séquentielle et gestion de la touche Entrée</h3>
+  <h3>F. Validation séquentielle, alerte globale et gestion de la touche Entrée</h3>
 
-  <h4>1) Validation question par question</h4>
+  <h4>1) Validation question par question + alerte globale</h4>
   <p><strong>Script concerné :</strong> bloc 8)</p>
 
   <ul>
@@ -500,25 +537,27 @@
     </li>
     <li>Focus automatique sur l’élément fautif.</li>
     <li>Scroll centré sur la question.</li>
+    <li>Mise à jour de l’alerte d’accessibilité globale (cf. E.2) avec un résumé de la première erreur.</li>
+    <li>Désactivation automatique de cette alerte dès que la question est corrigée et que le formulaire redevient valide.</li>
   </ul>
 
   <p><strong>Bénéfices :</strong></p>
   <ul>
     <li>Beaucoup plus clair pour l’utilisateur.</li>
     <li>Messages adaptés : format email, longueur, pattern…</li>
-    <li>Aide parfaite pour NVDA, JAWS, VoiceOver.</li>
+    <li>Aide parfaite pour NVDA, JAWS, VoiceOver (message local + résumé global).</li>
   </ul>
 
   <h4>2) Gestion de la touche Entrée</h4>
   <ul>
     <li>La touche Entrée reproduit l’action “Suivant / Envoyer”.</li>
-    <li>Ignorée sur les textarea, éditeurs riche, contenteditable.</li>
+    <li>Ignorée sur les textarea, éditeurs riches, zones <code>contenteditable</code>.</li>
   </ul>
 
   <p><strong>Bénéfices :</strong></p>
   <ul>
     <li>Navigation clavier extrêmement fluide.</li>
-    <li>Évite des envois accidentels.</li>
+    <li>Évite des envois accidentels et respecte les usages des champs multilignes.</li>
   </ul>
 
   <hr>
