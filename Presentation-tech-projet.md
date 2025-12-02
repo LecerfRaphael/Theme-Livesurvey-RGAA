@@ -353,8 +353,6 @@
 
   <hr>
 
-  <section id="notice-technique-4f-4g" style="max-width:900px;margin:auto;line-height:1.6;font-size:1rem;">
-
     <h2>Notice technique – Modules 4f et 4g (LimeSurvey)</h2>
 
     <p>
@@ -515,8 +513,6 @@
       Ensemble, ces modules renforcent la cohérence, la stabilité et l’accessibilité des questionnaires,
       en particulier pour les questions conditionnelles et les parcours complexes.
     </p>
-
-  </section>
 
   <hr>
 
