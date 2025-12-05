@@ -9,7 +9,7 @@
 
 <p>Sur ce git, vous trouverez le zip de notre tempalte (version stable) que vous pourrez installer (pré requis ... ) ainsi qu'une version Beta.</p>
 
-<p>Ce travail est mis à disponibilité des membres de l'APRANESR (association des référents accessibilité numérique de l’enseignant supérieur et de la recherche)</p>
+<p>Ce travail est mis à disponibilité des membres de l'<b>APRANESR (association des référents accessibilité numérique de l’enseignant supérieur et de la recherche)</b></p>
 
 
 <h2>🤝 Une démarche d’accessibilité continue</h2>
