@@ -20,7 +20,7 @@
 
 <p>
   📬 Contact :<br>
-  <a href="mailto:">contact APRANESR</a> •
+  <a href="mailto:contact@apranesr.fr">contact APRANESR</a> •
   <a href="mailto:raphael.lecerf@univ-lille.fr">raphael.lecerf@univ-lille.fr</a> •
   <a href="mailto:support-limesurvey@univ-lille.fr">support-limesurvey@univ-lille.fr</a>
 </p>
