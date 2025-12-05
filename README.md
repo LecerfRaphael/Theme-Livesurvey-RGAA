@@ -5,6 +5,8 @@
   - Licence : CC BY-NC-SA -
 </p>
 
+<p>L'accessibilité numérique est un enjeu majeur pour garantir l'inclusion de tous les utilisateurs, y compris les personnes en situation de handicap. En suivant le Référentiel Général d'Amélioration de l'Accessibilité (RGAA), l'Université de Lille a travaillé sur la refonte des templates utilisés par l'application LimeSurvey, pour que ces derniers  deviennent plus compréhensibles et utilisables par un public plus large. </p>
+
 <hr>
 
 <h2>🧭 Une navigation plus fluide : une seule question à corriger à la fois</h2>
