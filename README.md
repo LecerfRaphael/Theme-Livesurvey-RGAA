@@ -7,6 +7,18 @@
 
 <p>L'accessibilité numérique est un enjeu majeur pour garantir l'inclusion de tous les utilisateurs, y compris les personnes en situation de handicap. En suivant le Référentiel Général d'Amélioration de l'Accessibilité (RGAA), l'Université de Lille a travaillé sur la refonte des templates utilisés par l'application LimeSurvey, pour que ces derniers  deviennent plus compréhensibles et utilisables par un public plus large. </p>
 
+
+<h2>🤝 Une démarche d’accessibilité continue</h2>
+<p>
+  Ce pack est développé par la <strong>Direction du numérique – Service DAWAM • Université de Lille</strong>,<br>
+  dans une volonté de respecter les bonnes pratiques du <strong>RGAA 4</strong> et d'améliorer constamment l’expérience utilisateur.
+</p>
+
+<p>
+  📬 Contact :<br>
+  <a href="mailto:raphael.lecerf@univ-lille.fr">raphael.lecerf@univ-lille.fr</a> •
+  <a href="mailto:support-limesurvey@univ-lille.fr">support-limesurvey@univ-lille.fr</a>
+</p>
 <hr>
 
 <h2>🧭 Une navigation plus fluide : une seule question à corriger à la fois</h2>
@@ -124,16 +136,3 @@
   <li>♿ Navigation fluide sans souris, y compris dans les tableaux et les groupes complexes.</li>
 </ul>
 
-<hr>
-
-<h2>🤝 Une démarche d’accessibilité continue</h2>
-<p>
-  Ce pack est développé par la <strong>Direction du numérique – Service DAWAM • Université de Lille</strong>,<br>
-  dans une volonté de respecter les bonnes pratiques du <strong>RGAA 4</strong> et d'améliorer constamment l’expérience utilisateur.
-</p>
-
-<p>
-  📬 Contact :<br>
-  <a href="mailto:raphael.lecerf@univ-lille.fr">raphael.lecerf@univ-lille.fr</a> •
-  <a href="mailto:support-limesurvey@univ-lille.fr">support-limesurvey@univ-lille.fr</a>
-</p>
