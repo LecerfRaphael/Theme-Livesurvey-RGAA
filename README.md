@@ -7,7 +7,7 @@
 
 <p>L'accessibilité numérique est un enjeu majeur pour garantir l'inclusion de tous les utilisateurs, y compris les personnes en situation de handicap. En suivant le Référentiel Général d'Amélioration de l'Accessibilité (RGAA), l'Université de Lille a travaillé sur la refonte des templates utilisés par l'application LimeSurvey, pour que ces derniers  deviennent plus compréhensibles et utilisables par un public plus large. </p>
 
-<p>Sur ce git, vous trouverez le zip de notre template (version stable) que vous pourrez installer (pré requis ... ) ainsi qu'une version Beta.</p>
+<p>Sur ce git, vous trouverez le zip de notre template (version stable) que vous pourrez installer (pré requis : thème Fruity de base) ainsi qu'une version Beta.</p>
 
 <p>Ce travail est mis à disponibilité des membres de l'<b>APRANESR (association des référents accessibilité numérique de l’enseignant supérieur et de la recherche)</b></p>
 
