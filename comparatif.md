@@ -1,76 +1,30 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Comparatif version de base / version améliorée – Pack accessibilité LimeSurvey</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Bootstrap CSS (remplace l’URL par ta version locale si besoin) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-
-  <style>
-    .critere-card {
-      border-radius: .5rem;
-      border: 1px solid #e0e0e0;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      background-color: #ffffff;
-    }
-    .critere-title {
-      margin-bottom: 1rem;
-    }
-    .critere-col-title {
-      font-size: .8rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      font-weight: 600;
-      color: #6c757d;
-      margin-bottom: .25rem;
-    }
-    .critere-ref {
-      font-size: .9rem;
-    }
-  </style>
-</head>
-<body>
-<header class="bg-light border-bottom mb-4">
-  <div class="container py-3">
-    <h1 class="h2 mb-1">Comparatif version de base / version améliorée</h1>
-    <p class="text-muted mb-0">
-      Synthèse des améliorations d’accessibilité du thème LimeSurvey (RGAA / WCAG).
-    </p>
-  </div>
-</header>
-
-<main class="container pb-5">
-
-  <!-- 1. Structure de page : rôle main / header -->
+  <!-- 1. Structure de page : rÃ´le main / header -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Structure de page : rôle <code>main</code> / <code>header</code></strong>
+      <strong>Structure de page : rÃ´le <code>main</code> / <code>header</code></strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
           Le contenu principal est dans un
-          <code>&lt;article&gt;</code> sans rôle explicite, le header
-          de la navigation n’est pas clairement structuré.
+          <code>&lt;article&gt;</code> sans rÃ´le explicite, le header
+          de la navigation nâ€™est pas clairement structurÃ©.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
           Tu introduis <code>&lt;header role="banner"&gt;</code> et
           <code>&lt;main role="main"&gt;</code>. Le contenu du questionnaire est
-          clairement identifié comme zone principale.
+          clairement identifiÃ© comme zone principale.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
-          <strong>RGAA 9.1 / 6.1.1</strong> – zones de page repérables ;
-          <strong>WCAG 2.0 – 1.3.1 / 2.4.1</strong> (landmarks).
+          <strong>RGAA 9.1 / 6.1.1</strong> â€“ zones de page repÃ©rables ;
+          <strong>WCAG 2.0 â€“ 1.3.1 / 2.4.1</strong> (landmarks).
         </p>
       </div>
     </div>
@@ -86,23 +40,23 @@
         <div class="critere-col-title">Version de base</div>
         <p>
           Le <code>&lt;title&gt;</code> est statique :
-          « Enquête recensemment… (test finalisation template) ». Aucun lien
-          avec la page courante ni le groupe affiché.
+          Â« EnquÃªte recensemmentâ€¦ (test finalisation template) Â». Aucun lien
+          avec la page courante ni le groupe affichÃ©.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
           Script JavaScript qui recalcule <code>document.title</code> :
-          « Enquête recensement et cartographie RAN — Page X / Y », en
-          récupérant le nom de l’enquête et du groupe. Mise à jour aussi des
+          Â« EnquÃªte recensement et cartographie RAN â€” Page X / Y Â», en
+          rÃ©cupÃ©rant le nom de lâ€™enquÃªte et du groupe. Mise Ã  jour aussi des
           metas OpenGraph / Twitter.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
-          <strong>RGAA 8.9 / 8.10</strong> – titres de pages pertinents ;
+          <strong>RGAA 8.9 / 8.10</strong> â€“ titres de pages pertinents ;
           <strong>WCAG 2.4.2 Page Titled</strong>.
         </p>
       </div>
@@ -118,20 +72,20 @@
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Le H1 de groupe est géré par le thème, mais sans indication du
-          numéro de page dans l’enchaînement global (ou alors sans cohérence).
+          Le H1 de groupe est gÃ©rÃ© par le thÃ¨me, mais sans indication du
+          numÃ©ro de page dans lâ€™enchaÃ®nement global (ou alors sans cohÃ©rence).
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Script qui recalcule le H1 : « Enquête… — Page 1 / 1 » en analysant
-          l’index des questions / valeurs <code>move</code>. Meilleure
-          compréhension pour tous, y compris lecteurs d’écran.
+          Script qui recalcule le H1 : Â« EnquÃªteâ€¦ â€” Page 1 / 1 Â» en analysant
+          lâ€™index des questions / valeurs <code>move</code>. Meilleure
+          comprÃ©hension pour tous, y compris lecteurs dâ€™Ã©cran.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 9.1 / 8.10</strong>,
           <strong>WCAG 2.4.2 / 2.4.6</strong>.
@@ -149,23 +103,23 @@
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Lien <code>&lt;a class="dropdown-toggle"&gt;</code> sans texte caché
-          supplémentaire ni <code>sr-only</code>. Toggler mobile sans
-          indication vocale (« Menu » absent).
+          Lien <code>&lt;a class="dropdown-toggle"&gt;</code> sans texte cachÃ©
+          supplÃ©mentaire ni <code>sr-only</code>. Toggler mobile sans
+          indication vocale (Â« Menu Â» absent).
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Tu transformes l’index en
+          Tu transformes lâ€™index en
           <code>&lt;button class="btn-nostyle dropdown-toggle nav-link"&gt;</code>
-          + ajout d’un <code>&lt;span class="sr-only"&gt;Menu&lt;/span&gt;</code>
-          dans le toggler. Comportement plus clair pour lecteurs d’écran et
-          activation clavier mieux cadrée.
+          + ajout dâ€™un <code>&lt;span class="sr-only"&gt;Menu&lt;/span&gt;</code>
+          dans le toggler. Comportement plus clair pour lecteurs dâ€™Ã©cran et
+          activation clavier mieux cadrÃ©e.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 9.2 / 9.3</strong>,
           <strong>WCAG 2.1.1 Keyboard</strong>, 2.4.7 Focus Visible.
@@ -174,32 +128,32 @@
     </div>
   </div>
 
-  <!-- 5. Texte obligatoire / astérisque -->
+  <!-- 5. Texte obligatoire / astÃ©risque -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Texte obligatoire / astérisque</strong>
+      <strong>Texte obligatoire / astÃ©risque</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Astérisque + phrase « (Cette question est obligatoire) » dans un
-          <code>&lt;span class="visually-hidden"&gt;</code> – déjà correct,
-          mais répété dans chaque bloc avec un H2/H3 plutôt verbeux.
+          AstÃ©risque + phrase Â« (Cette question est obligatoire) Â» dans un
+          <code>&lt;span class="visually-hidden"&gt;</code> â€“ dÃ©jÃ  correct,
+          mais rÃ©pÃ©tÃ© dans chaque bloc avec un H2/H3 plutÃ´t verbeux.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Tu gardes le couple astérisque +
+          Tu gardes le couple astÃ©risque +
           <code>span.visually-hidden</code>, mais tu ajoutes un rappel
-          global dans le groupe : <code>&lt;sup&gt;</code> + « question
-          obligatoire ». Le pattern est plus lisible et évite la redondance
+          global dans le groupe : <code>&lt;sup&gt;</code> + Â« question
+          obligatoire Â». Le pattern est plus lisible et Ã©vite la redondance
           textuelle.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 8.2 / 11.1</strong>,
           <strong>WCAG 3.3.2 Labels or Instructions</strong>.
@@ -218,24 +172,24 @@
         <div class="critere-col-title">Version de base</div>
         <p>
           Texte de question dans
-          <code>&lt;div class="question-title-container"&gt;&lt;div class="ls-label-question"&gt;…&lt;/div&gt;</code>
+          <code>&lt;div class="question-title-container"&gt;&lt;div class="ls-label-question"&gt;â€¦&lt;/div&gt;</code>
           et champ avec <code>aria-labelledby</code>. Pas de vrai
-          <code>&lt;label for="…"&gt;</code> direct : dépend du couplage ARIA.
+          <code>&lt;label for="â€¦"&gt;</code> direct : dÃ©pend du couplage ARIA.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
           Tu remplaces par un vrai
-          <code>&lt;label class="ls-label-question" for="answer…" /&gt;</code>
-          (le <code>id</code> de l’input), qui joue le rôle à la fois visuel
-          et programmatique. L’ARIA <code>aria-labelledby</code> reste cohérent.
+          <code>&lt;label class="ls-label-question" for="answerâ€¦" /&gt;</code>
+          (le <code>id</code> de lâ€™input), qui joue le rÃ´le Ã  la fois visuel
+          et programmatique. Lâ€™ARIA <code>aria-labelledby</code> reste cohÃ©rent.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
-          <strong>RGAA 11.1</strong> – chaque champ a une étiquette ;
+          <strong>RGAA 11.1</strong> â€“ chaque champ a une Ã©tiquette ;
           <strong>WCAG 1.3.1 / 3.3.2</strong>.
         </p>
       </div>
@@ -252,59 +206,59 @@
         <div class="critere-col-title">Version de base</div>
         <p>
           Questions sous forme de <code>div.question-container</code>
-          avec sous-blocs internes. Pour les listes radio, le « titre »
-          est dans un bloc <code>div</code> séparé, pas dans un
+          avec sous-blocs internes. Pour les listes radio, le Â« titre Â»
+          est dans un bloc <code>div</code> sÃ©parÃ©, pas dans un
           <code>&lt;legend&gt;</code>.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Tu appliques un script générique : transformation de
+          Tu appliques un script gÃ©nÃ©rique : transformation de
           <code>div.list-radio</code>, <code>div.multiple-opt</code>,
           <code>div.numeric-multi</code>, <code>div.date</code>, etc. en
-          <code>&lt;fieldset class="question-container …"&gt;</code> +
+          <code>&lt;fieldset class="question-container â€¦"&gt;</code> +
           <code>&lt;legend class="ls-label-question"&gt;</code>.
-          Structuration sémantique complète.
+          Structuration sÃ©mantique complÃ¨te.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 9.2</strong>,
-          <strong>WCAG 1.3.1</strong> – relations logiques & regroupements de champs.
+          <strong>WCAG 1.3.1</strong> â€“ relations logiques & regroupements de champs.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 8. Messages d’aide / erreurs -->
+  <!-- 8. Messages dâ€™aide / erreurs -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Gestion des messages d’aide / erreurs (<code>question-valid-container</code>)</strong>
+      <strong>Gestion des messages dâ€™aide / erreurs (<code>question-valid-container</code>)</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Les messages d’erreur / aide sont dans
+          Les messages dâ€™erreur / aide sont dans
           <code>div.question-valid-container</code> avec
           <code>role="alert"</code> sur <code>.ls-questionhelp</code>,
-          même quand il s’agit de simples tips. Risque de verbosité
-          « alerte » pour JAWS / NVDA.
+          mÃªme quand il sâ€™agit de simples tips. Risque de verbositÃ©
+          Â« alerte Â» pour JAWS / NVDA.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
           Script qui retire <code>role="alert"</code> et convertit en
           <code>aria-live="polite"</code> ; suppression des
           <code>question-valid-container</code> superflus. Les aides
-          deviennent des messages d’information, pas des alertes intempestives.
+          deviennent des messages dâ€™information, pas des alertes intempestives.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 7.1 / 7.2</strong>,
           <strong>WCAG 3.3.1 Error Identification</strong>, 4.1.3 Status Messages.
@@ -322,62 +276,62 @@
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Quand une question redevient pertinente, l’Expression Manager enlève
+          Quand une question redevient pertinente, lâ€™Expression Manager enlÃ¨ve
           <code>ls-irrelevant</code> mais laisse parfois
           <code>ls-hidden</code> / <code>hidden</code> /
           <code>display:none</code>, ce qui bloque la navigation pour
-          clavier / lecteur d’écran.
+          clavier / lecteur dâ€™Ã©cran.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Script 4f) : <code>unhideIfRelevant(q)</code> enlève
+          Script 4f) : <code>unhideIfRelevant(q)</code> enlÃ¨ve
           <code>ls-hidden</code>, <code>hidden</code>,
-          <code>display:none</code> dès que la question redevient
-          pertinente (sauf si marquée
+          <code>display:none</code> dÃ¨s que la question redevient
+          pertinente (sauf si marquÃ©e
           <code>data-ls-manual-hide="1"</code>). Les questions
           conditionnelles redeviennent visibles correctement.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 10.7 / 12.13</strong>,
-          <strong>WCAG 1.3.1</strong> (contenu contrôlé par scripts) &amp; 2.1.1.
+          <strong>WCAG 1.3.1</strong> (contenu contrÃ´lÃ© par scripts) &amp; 2.1.1.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 10. Questions « Si oui… » -->
+  <!-- 10. Questions Â« Si ouiâ€¦ Â» -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Questions « Si oui… » (logique conditionnelle lisible)</strong>
+      <strong>Questions Â« Si ouiâ€¦ Â» (logique conditionnelle lisible)</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Logique de pertinence gérée uniquement via Expression Manager
-          (conditions internes). Pas de cohérence sémantique explicite
-          entre la question mère (« Oui / Non ») et la question fille (qui suit).
+          Logique de pertinence gÃ©rÃ©e uniquement via Expression Manager
+          (conditions internes). Pas de cohÃ©rence sÃ©mantique explicite
+          entre la question mÃ¨re (Â« Oui / Non Â») et la question fille (qui suit).
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Script 4g) : détection des <code>&lt;legend&gt;</code> commençant
-          par « Si oui », recherche de la question parente juste au-dessus,
-          écoute des radios « Oui » et masquage / ré-affichage propre de la
-          question fille, avec nettoyage des réponses si masquée.
+          Script 4g) : dÃ©tection des <code>&lt;legend&gt;</code> commenÃ§ant
+          par Â« Si oui Â», recherche de la question parente juste au-dessus,
+          Ã©coute des radios Â« Oui Â» et masquage / rÃ©-affichage propre de la
+          question fille, avec nettoyage des rÃ©ponses si masquÃ©e.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 10.7</strong>,
-          <strong>WCAG 3.2.2 On Input</strong> – changements de contexte prévisibles + 3.3.2.
+          <strong>WCAG 3.2.2 On Input</strong> â€“ changements de contexte prÃ©visibles + 3.3.2.
         </p>
       </div>
     </div>
@@ -386,229 +340,229 @@
   <!-- 11. Required conditionnel -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Required conditionnel (visibilité / pertinence)</strong>
+      <strong>Required conditionnel (visibilitÃ© / pertinence)</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
           Les champs dans des questions <code>mandatory</code> restent
-          parfois <code>required</code> même si cachés (cas
+          parfois <code>required</code> mÃªme si cachÃ©s (cas
           <code>.ls-hidden</code>, conditionnels, <code>othertext</code>, etc.),
           ce qui bloque la validation.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Bloc 4) : plusieurs scripts qui gèrent <code>required</code>
+          Bloc 4) : plusieurs scripts qui gÃ¨rent <code>required</code>
           uniquement sur questions visibles : text-short / text-long,
           list-radio, tableaux <code>.ls-table-wrapper</code>,
-          multiple-opt, etc. Nettoyage des champs masqués.
+          multiple-opt, etc. Nettoyage des champs masquÃ©s.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 11.1 / 10.7</strong>,
-          <strong>WCAG 3.3.1 / 3.3.3</strong> – erreurs identifiées et formulaires utilisables.
+          <strong>WCAG 3.3.1 / 3.3.3</strong> â€“ erreurs identifiÃ©es et formulaires utilisables.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 12. Entrées « Autre : » -->
+  <!-- 12. EntrÃ©es Â« Autre : Â» -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Entrées « Autre : » (<code>othertext</code>)</strong>
+      <strong>EntrÃ©es Â« Autre : Â» (<code>othertext</code>)</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Le champ « Autre : » a parfois un <code>required</code> ou
-          influence la validation de façon bancale (obligatoire même sans
-          choix « Autre »).
+          Le champ Â« Autre : Â» a parfois un <code>required</code> ou
+          influence la validation de faÃ§on bancale (obligatoire mÃªme sans
+          choix Â« Autre Â»).
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
           Nettoyage du <code>required</code> sur
           <code>.ls-js-hidden input.othertext</code> + logique :
-          le message « préciser le champ ‘Autre’ » ne s’active que si
-          l’option <code>-oth-</code> est sélectionnée et que le champ texte
+          le message Â« prÃ©ciser le champ â€˜Autreâ€™ Â» ne sâ€™active que si
+          lâ€™option <code>-oth-</code> est sÃ©lectionnÃ©e et que le champ texte
           est vide.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 11.1</strong>,
-          <strong>WCAG 3.3.2</strong> – étiquettes &amp; aides adaptées.
+          <strong>WCAG 3.3.2</strong> â€“ Ã©tiquettes &amp; aides adaptÃ©es.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 13. Champs numériques / type de clavier -->
+  <!-- 13. Champs numÃ©riques / type de clavier -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Champs numériques / type de clavier (mobile)</strong>
+      <strong>Champs numÃ©riques / type de clavier (mobile)</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Tous les champs sont en <code>type="text"</code> même pour
-          numérique, téléphone, mail, date ; cela limite l’ergonomie clavier
-          virtuel et les contrôles natifs.
+          Tous les champs sont en <code>type="text"</code> mÃªme pour
+          numÃ©rique, tÃ©lÃ©phone, mail, date ; cela limite lâ€™ergonomie clavier
+          virtuel et les contrÃ´les natifs.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
           Script 6) : conversion automatique en <code>type="email"</code>,
           <code>type="tel"</code>, <code>type="number"</code>,
           <code>type="date"</code> selon la classe du fieldset
           (<code>.email</code>, <code>.tel</code>, <code>.num</code>,
-          <code>.numeric</code>, <code>.date</code>), avec gestion d’inputmode
+          <code>.numeric</code>, <code>.date</code>), avec gestion dâ€™inputmode
           / placeholder.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 7.5</strong>,
-          <strong>WCAG 2.1.1 / 2.5.1</strong> – facilité d’usage au clavier & sur mobile.
+          <strong>WCAG 2.1.1 / 2.5.1</strong> â€“ facilitÃ© dâ€™usage au clavier & sur mobile.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 14. Champs date : trio jour/mois/année -->
+  <!-- 14. Champs date : trio jour/mois/annÃ©e -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Champs date : trio jour/mois/année + input caché</strong>
+      <strong>Champs date : trio jour/mois/annÃ©e + input cachÃ©</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Input <code>type="date"</code> masqué + selects jour / mois / année,
+          Input <code>type="date"</code> masquÃ© + selects jour / mois / annÃ©e,
           mais liaison parfois fragile, validations peu explicites ; risque de
-          focus sur le champ caché en cas d’erreur.
+          focus sur le champ cachÃ© en cas dâ€™erreur.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Bloc 1) : script qui synchronise les selects J/M/A vers l’input
-          <code>type="date"</code> caché, enlève <code>required</code> sur ce
-          dernier, gère le focus vers le premier select vide en cas d’erreur,
-          + placeholders « Jour / Mois / Année ».
+          Bloc 1) : script qui synchronise les selects J/M/A vers lâ€™input
+          <code>type="date"</code> cachÃ©, enlÃ¨ve <code>required</code> sur ce
+          dernier, gÃ¨re le focus vers le premier select vide en cas dâ€™erreur,
+          + placeholders Â« Jour / Mois / AnnÃ©e Â».
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 3.2 / 11.1</strong>,
-          <strong>WCAG 1.3.1 / 3.3.1</strong> – sens conservé, erreurs identifiables.
+          <strong>WCAG 1.3.1 / 3.3.1</strong> â€“ sens conservÃ©, erreurs identifiables.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 15. Callout JS désactivé -->
+  <!-- 15. Callout JS dÃ©sactivÃ© -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Callout JavaScript désactivé</strong>
+      <strong>Callout JavaScript dÃ©sactivÃ©</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Message JavaScript déjà présent (« JavaScript désactivé… »), mais
-          l’impact sur le fonctionnement n’est pas clarifié, et pas forcément
-          mis à jour avec les évolutions.
+          Message JavaScript dÃ©jÃ  prÃ©sent (Â« JavaScript dÃ©sactivÃ©â€¦ Â»), mais
+          lâ€™impact sur le fonctionnement nâ€™est pas clarifiÃ©, et pas forcÃ©ment
+          mis Ã  jour avec les Ã©volutions.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Le message est conservé, ton pack ajoute des scripts mais tu veilles
-          à ce que la structure HTML reste fonctionnelle sans JS (labels,
-          fieldsets, required côté serveur, etc.). L’expérience est dégradée
+          Le message est conservÃ©, ton pack ajoute des scripts mais tu veilles
+          Ã  ce que la structure HTML reste fonctionnelle sans JS (labels,
+          fieldsets, required cÃ´tÃ© serveur, etc.). Lâ€™expÃ©rience est dÃ©gradÃ©e
           mais reste utilisable.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 8.9 / 13.1</strong>,
-          <strong>WCAG 1.3.1 / 2.1.1</strong> – fonctionnement sans script.
+          <strong>WCAG 1.3.1 / 2.1.1</strong> â€“ fonctionnement sans script.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 16. Visibilité des pickers calendrier -->
+  <!-- 16. VisibilitÃ© des pickers calendrier -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Visibilité des pickers calendrier</strong>
+      <strong>VisibilitÃ© des pickers calendrier</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
           Les pickers graphiques (<code>.input-group-addon i.fa-calendar</code>,
-          widgets tempus dominus) peuvent introduire du bruit et des pièges de
-          navigation pour lecteurs d’écran.
+          widgets tempus dominus) peuvent introduire du bruit et des piÃ¨ges de
+          navigation pour lecteurs dâ€™Ã©cran.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Bloc 5) : masquage des <code>.input-group-addon</code> avec icône
+          Bloc 5) : masquage des <code>.input-group-addon</code> avec icÃ´ne
           calendrier et des widgets <code>.tempus-dominus-widget</code>,
           <code>.date-container</code>. Reste la saisie via selects ou champs date.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 7.5 / 10.7</strong>,
-          <strong>WCAG 2.1.1 / 2.4.3</strong> – suppression de contrôles redondants ou confus.
+          <strong>WCAG 2.1.1 / 2.4.3</strong> â€“ suppression de contrÃ´les redondants ou confus.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 17. Hiérarchie des titres / légendes de groupe -->
+  <!-- 17. HiÃ©rarchie des titres / lÃ©gendes de groupe -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Hiérarchie des titres / légendes de groupe</strong>
+      <strong>HiÃ©rarchie des titres / lÃ©gendes de groupe</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Groupes : titre « Identification » dans un
+          Groupes : titre Â« Identification Â» dans un
           <code>&lt;div class="group-title h3"&gt;</code> sans relation forte
           avec la page / structure globale.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
           <code>&lt;fieldset&gt;</code> de groupe avec
           <code>&lt;legend class="group-title h3"&gt;Identification&lt;/legend&gt;</code>,
-          H1 distinct pour le titre général + page. Hiérarchie claire :
-          H1 (enquête/page), legend (bloc de questions).
+          H1 distinct pour le titre gÃ©nÃ©ral + page. HiÃ©rarchie claire :
+          H1 (enquÃªte/page), legend (bloc de questions).
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 9.1 / 9.2</strong>,
           <strong>WCAG 1.3.1 / 2.4.6</strong>.
@@ -617,31 +571,31 @@
     </div>
   </div>
 
-  <!-- 18. Compatibilité lecteur d’écran : aide / erreurs -->
+  <!-- 18. CompatibilitÃ© lecteur dâ€™Ã©cran : aide / erreurs -->
   <div class="critere-card">
     <h2 class="h4 critere-title">
-      <strong>Compatibilité lecteur d’écran : texte d’aide et messages d’erreur</strong>
+      <strong>CompatibilitÃ© lecteur dâ€™Ã©cran : texte dâ€™aide et messages dâ€™erreur</strong>
     </h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Les messages d’erreurs sont parfois trop nombreux, annoncés comme
+          Les messages dâ€™erreurs sont parfois trop nombreux, annoncÃ©s comme
           <code>role="alert"</code>, avec peu de distinction entre aide,
-          astuce et erreur réelle.
+          astuce et erreur rÃ©elle.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
           Tu standardises les <code>.ls-questionhelp</code> en infos non
           bloquantes (<code>aria-live="polite"</code>), et les vrais cas
-          d’erreurs restent gérés par la validation EM. Résultat : synthèse
-          vocale moins saturée.
+          dâ€™erreurs restent gÃ©rÃ©s par la validation EM. RÃ©sultat : synthÃ¨se
+          vocale moins saturÃ©e.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 7.1 / 7.2</strong>,
           <strong>WCAG 3.3.1</strong>.
@@ -659,30 +613,25 @@
       <div class="col-md-4 mb-3">
         <div class="critere-col-title">Version de base</div>
         <p>
-          Tables d’items (<code>.ls-table-wrapper</code>) : la validation EM
-          exige parfois une réponse par ligne mais sans véritable couplage
+          Tables dâ€™items (<code>.ls-table-wrapper</code>) : la validation EM
+          exige parfois une rÃ©ponse par ligne mais sans vÃ©ritable couplage
           <code>required</code> HTML.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Version améliorée</div>
+        <div class="critere-col-title">Version amÃ©liorÃ©e</div>
         <p>
-          Script de validation par ligne (4b) qui ajoute ou enlève
-          <code>required</code> en fonction de la sélection au niveau de chaque
-          ligne. Meilleure cohérence client / serveur.
+          Script de validation par ligne (4b) qui ajoute ou enlÃ¨ve
+          <code>required</code> en fonction de la sÃ©lection au niveau de chaque
+          ligne. Meilleure cohÃ©rence client / serveur.
         </p>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="critere-col-title">Références RGAA / WCAG</div>
+        <div class="critere-col-title">RÃ©fÃ©rences RGAA / WCAG</div>
         <p class="critere-ref">
           <strong>RGAA 11.1</strong>,
           <strong>WCAG 3.3.1 / 3.3.3</strong>.
         </p>
       </div>
     </div>
-  </div>
-
-</main>
-
-</body>
-</html>
+  </div
