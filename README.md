@@ -101,25 +101,6 @@
 
 <hr>
 
-<h2>😄 Questions “Si oui…” : un fonctionnement plus simple et plus logique</h2>
-<p>Dans beaucoup de questionnaires, certaines questions dépendent d’une réponse précédente. Par exemple :</p>
-<blockquote>
-  <strong>Q1 :</strong> Êtes-vous fumeur ?<br>
-  <strong>Q2 :</strong> Si oui, combien de cigarettes par jour ?
-</blockquote>
-<p>
-  Le pack détecte automatiquement les questions dont la légende commence par
-  <strong>“Si oui…”</strong> et les relie à la question précédente :
-</p>
-<ul>
-  <li>✅ Si la réponse “Oui” est cochée à la question précédente → la question “Si oui…” apparaît.</li>
-  <li>🚫 Sinon, la question “Si oui…” est masquée, ses réponses sont vidées et ne sont plus obligatoires.</li>
-  <li>♿ Les questions masquées sont correctement retirées de la navigation (clavier, lecteur d’écran).</li>
-</ul>
-<p>✨ Résultat : la personne ne voit <strong>que les questions qui la concernent vraiment</strong>, sans blocage ni surprise.</p>
-
-<hr>
-
 <h2>🗣️ Messages accessibles et retours vocaux</h2>
 <ul>
   <li>🔔 Les messages importants sont gérés via des zones <strong><code>aria-live</code></strong> adaptées.</li>
